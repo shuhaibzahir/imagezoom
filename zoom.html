@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        #container {
+            text-align: center;
+            width: 500px;
+            height: 312px;
+            background-color: #707070;
+            ;
+            box-shadow: 3px 3px 10px #000;
+            overflow: hidden;
+        }
+    </style>
+    <h1>Imagem zoom</h1>
+    <div id="container">
+
+        <img src="https://getwallpapers.com/wallpaper/full/e/1/2/41252.jpg" style="width:100%">
+    </div>
+
+    <script>
+        const container = document.getElementById('container')
+        const img = document.querySelector('img')
+
+        container.addEventListener('mousemove', (e) => {
+            const x = e.clientX - e.target.offsetLeft
+            const y = e.clientY - e.target.offsetTop
+
+            console.log(x, y)
+            img.style.transformOrigin = `${x}px ${y}px`
+            img.style.transform = 'scale(2)'
+
+        })
+
+        container.addEventListener('mouseleave', (e) => {
+            img.style.transform = " scale(1)"
+        })
+    </script>
+</body>
+
+</html>
